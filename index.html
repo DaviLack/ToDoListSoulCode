@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarefas</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+</head>
+
+<body id="body" class="h-full bg-white">
+  <header id="header" class="flex flex-wrap p-2 justify-between w-full bg-violet-700">
+    <h1 class="text-3xl font-bold text-white">Lista de Tarefas</h1>
+    <div class="flex flex-wrap w-fit">
+    <button id="btnTheme" class="mr-4 cursor-pointer"><i class="ph ph-sun text-2xl"></i></button>
+    <h1 id="relogio" class="font-bold ">Hora: </h1>
+    </div>
+  </header>
+
+  <main id="main" class="flex flex-wrap items-center gap-4 mx-auto ">
+
+    <section id="topSection" class="p-4 w-full flex justify-around bg-violet-700">
+      <div class=" p-4 flex justify-between w-full ">
+        <div class="flex flex-wrap">
+          <h1 class="font-bold text-2xl m-2 text-white">Filtros: </h1>
+          <button id="btnFiltroTodas" class="bg-gray-600 text-white px-4 py-2 rounded m-2 opacity-50 cursor-not-allowed"
+            disabled>Todas </button>
+          <button id="btnFiltroPendentes"
+            class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 m-2">Pendente</button>
+          <button id="btnFiltroConcluidas"
+            class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 m-2">Concluida</button>
+        </div>
+        <button id="abrirModal" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600">Adicionar
+          Tarefa</button>
+      </div>
+    </section>
+
+    <div id="divTabela" class="mx-auto mt-8 px-6 mb-10 h-full">
+      <table class="w-full rounded shadow table-fixed border ">
+        <thead>
+          <tr id="trHead" class="bg-purple-500">
+            <th class="py-2 text-center w-1/5">Título</th>
+            <th class="text-center w-1/5">Descrição</th>
+            <th class="text-center w-1/5">Data de Criação</th>
+            <th class="text-center w-1/5">Situação</th>
+            <th class="text-center w-1/4">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="bodyTabela">
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+
+  <dialog id="modalTarefa">
+    <div class="fixed inset-0 flex items-center justify-center z-50 ">
+      <form method="dialog" id="formTarefa" class="flex flex-col gap-4 p-4 bg-gray-300">
+        <h2 class="text-lg font-semibold">Adicionar Tarefa</h2>
+        <label for="tituloTarefa" class="font-medium">Título: </label>
+        <input type="text" name="tituloTarefa" id="tituloTarefa" required placeholder="Digite um título"
+          class="border rounded px-2 py-1">
+        <label for="descTarefa" class="font-medium">Descrição </label>
+        <input type="text" name="descTarefa" id="descTarefa" required placeholder="Digite uma descrição"
+          class="border rounded px-2 py-1">
+        <div class="flex gap-2 justify-end">
+          <button id="btnAdicionarTarefa" type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Adicionar</button>
+          <button id="cancelarModal" type="reset"
+            class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+  </dialog>
+
+  <dialog id="modalConfirmacao">
+    <div class="fixed inset-0 flex items-center justify-center flex-col z-50">
+      <div id="divmodalConfirmacao" class="flex flex-col gap-4 p-4 bg-gray-300 rounded-lg">
+        <p class="text-base">Deseja realmente marcar essa tarefa como concluída?</p>
+        <div class="flex gap-2 justify-end ">
+          <button id="btnModalConfirmacao" type="button"
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Confirmar</button>
+          <button id="btnCancelarModalConfirmacao" type="button"
+            class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="modalExcluir">
+    <div class="fixed inset-0 flex items-center justify-center flex-col z-50">
+      <div id="divmodalExcluir" class="flex flex-col gap-4 p-4 bg-gray-300 rounded-lg">
+        <p class="text-base">Deseja realmente excluir essa tarefa?</p>
+        <div class="flex gap-2 justify-end">
+          <button id="btnModalExcluir" type="button"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirmar</button>
+          <button id="btnCancelarModalExcluir" type="button"
+            class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
