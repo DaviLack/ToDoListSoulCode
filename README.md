@@ -1,4 +1,4 @@
-# ToDoListSoulCode
+# To-Do List SoulCode
 To-Do List desenvolvida com HTML, Tailwind CSS, Vite e JavaScript
 
 Esta To-Do List é capaz de adicionar e remover tarefas, marcar tarefas como concluídas, alterar temas e filtragem por situação da tarefa.
